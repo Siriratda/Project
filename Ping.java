@@ -10,7 +10,7 @@ public class Ping {
     System.out.println("Sending Ping Request to " + ipAddress);
     System.out.println(inet.isReachable(5000) ? "Host is reachable" : "Host is NOT reachable");
 
-    ipAddress = "192.168.1.111";
+    ipAddress = "8.8.8.8";
     inet = InetAddress.getByName(ipAddress);
 
     System.out.println("Sending Ping Request to " + ipAddress);
