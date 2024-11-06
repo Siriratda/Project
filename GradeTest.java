@@ -4,7 +4,7 @@ import pse.pt.PacketTracer;
 import java.io.File;
 
 class GradeTest {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         System.out.println("Program start...");
 
         if (args.length != 1) {
@@ -12,10 +12,9 @@ class GradeTest {
             System.exit(1);
         }
 
-        // ใช้ try-with-resources เพื่อให้แน่ใจว่าทรัพยากรจะถูกปิดอย่างเหมาะสม
+        File file = new File(args[0]);
+        
         try (PacketTracer packetTracer = new PacketTracer("localhost", 39000, true)) {
-            File file = new File(args[0]);
-
             packetTracer.launch();
             packetTracer.connect();
             packetTracer.fileOpen(file.getCanonicalPath());
@@ -25,7 +24,7 @@ class GradeTest {
 
             System.out.println(percentageComplete + "\t" + args[0]);
         } catch (Exception e) {
-            System.err.println("Error: " + e.getMessage());
+            System.err.println("An error occurred: " + e.getMessage());
             e.printStackTrace();
         }
     }
