@@ -9,6 +9,8 @@ public static void main(String args[])
 {
  File file;
  PacketTracer packettracer;
+ System.out.println("Program start..." );
+
  if (args.length != 1) {
    System.err.println("You need to specify a pka file to grade");
    System.exit(1);
